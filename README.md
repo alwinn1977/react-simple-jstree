@@ -7,7 +7,10 @@
 ![dev dependencies](https://img.shields.io/david/dev/alwinn1977/react-simple-jstree.svg)
 ![License](https://img.shields.io/npm/l/react-simple-jstree.svg)
 
-The simple React.js wrapper for jstree
+The simple React.js wrapper for [jsTree](https://github.com/vakata/jstree).
+This component allows you to draw trees from JSON data easily and quickly.
+See [jsTree](https://github.com/vakata/jstree) to get more information
+about appropriate JSON data structure.
 
 ## Getting Started
 
@@ -25,7 +28,27 @@ import TreeView from 'react-simple-jstree';
 
 React.js (ES6) usage example:
 
-Coming soon...
+```javascript
+render() {
+  const data = {
+      'core' : {
+        'data' : [
+          { "text" : "Root node", "children" : [
+              { "text" : "Child node 1" },
+              { "text" : "Child node 2" }
+            ]
+          }
+        ]
+      }
+    };
+  
+  return (
+    <TreeView treeData={data} />
+  );
+}
+
+
+```
 
 ## License
 
