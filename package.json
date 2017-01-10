@@ -1,14 +1,13 @@
 {
   "name": "react-simple-jstree",
   "description": "The simple React.js wrapper for jstree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "author": "alwinn1977",
   "repository": "alwinn1977/react-simple-jstree",
   "license": "MIT",
   "scripts": {
     "compile": "babel src --out-dir lib",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prepublish": "npm run compile"
   },
   "devDependencies": {
