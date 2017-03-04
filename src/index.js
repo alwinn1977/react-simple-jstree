@@ -16,6 +16,13 @@ class TreeView extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const { treeData } = this.props;
+    if (treeData) {
+      $('#data').jstree(true).settings = treeData;
+      $('#data').jstree(true).refresh();
+    }
+  }
 
   render() {
     return (
