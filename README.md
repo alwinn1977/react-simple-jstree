@@ -29,26 +29,91 @@ import TreeView from 'react-simple-jstree';
 React.js (ES6) usage example:
 
 ```javascript
-render() {
-  const data = {
-      'core' : {
-        'data' : [
-          { "text" : "Root node", "children" : [
-              { "text" : "Child node 1" },
-              { "text" : "Child node 2" }
-            ]
-          }
-        ]
+import React, {Component} from 'react';
+import TreeView from 'react-simple-jstree';
+
+export class Tree extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {
+        core: {
+          data: [
+            {
+              text: 'Root node', children: [
+              {text: 'Child node 1'},
+              {text: 'Child node 2'}
+              ]
+            }
+          ]
+        }
       }
     };
-  
-  return (
-    <TreeView treeData={data} />
-  );
+  }
+
+  handleClick() {
+    const newData = this.state.data.core.data[0].children.slice();
+    newData.push({text: 'New child node'});
+    this.setState({
+      data: {
+        core: {
+          data: [
+            {
+              text: 'Root node', children: newData
+            }
+          ]
+        }
+      }
+    });
+  }
+
+  render() {
+    const data = this.state.data;
+
+    return (
+      <div>
+        <button onClick={() => this.handleClick()}>Add node and Update</button>
+        <br/><br/>
+        <TreeView treeData={data}/>
+      </div>
+    );
+  }
 }
 
 
 ```
+
+IMPORTANT! If you use webpack, you have to install and configure file-loader to load
+*.gif and *.jpg files in webpack.conf.js, for example:
+
+```
+loaders: [
+     
+      {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css',
+          'postcss'
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: [
+          'react-hot',
+          'babel'
+        ]
+      },
+      { test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: 'file-loader'
+      },
+    ]
+
+```
+
+See example project in demo folder for details.
 
 ## License
 
