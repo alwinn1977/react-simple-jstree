@@ -3,7 +3,6 @@
 ## Getting Started
 
 ```shell
-cd demo
 npm install
 npm run serve
 ```
