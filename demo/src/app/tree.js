@@ -42,7 +42,7 @@ export class Tree extends Component {
 
     return (
       <div>
-        <button onClick={() => this.handleClick()}>Add node and Update</button>
+        <button onClick={() => this.handleClick()}>Add node</button>
         <br/><br/>
         <TreeView treeData={data}/>
       </div>

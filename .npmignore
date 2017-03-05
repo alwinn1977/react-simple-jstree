@@ -48,5 +48,4 @@ Thumbs.db
 .LSOverride
 .Spotlight-V100
 .Trashes
-demo/.tmp/
-demo/node_modules/
+demo
