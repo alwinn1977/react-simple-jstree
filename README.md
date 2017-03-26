@@ -39,7 +39,7 @@ It is an optional event handler for the changed event, which occurs when one or 
  have been selected. See example below for this prop's usage details.
 
 
-##React.js (ES6) usage example:
+## React.js (ES6) usage example:
 
 ```javascript
 import React, {Component} from 'react';
