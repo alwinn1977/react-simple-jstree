@@ -17,7 +17,8 @@ export class Tree extends Component {
             }
           ]
         }
-      }
+      },
+      selected: [],
     };
   }
 
@@ -37,6 +38,12 @@ export class Tree extends Component {
     });
   }
 
+  handleChange(e, data) {
+    this.setState({
+      selected: data.selected,
+    })
+  }
+
   render() {
     const data = this.state.data;
 
@@ -44,7 +51,9 @@ export class Tree extends Component {
       <div>
         <button onClick={() => this.handleClick()}>Add node</button>
         <br/><br/>
-        <TreeView treeData={data}/>
+        <TreeView treeData={data} onChange={(e, data) => this.handleChange(e, data)} />
+        <br />
+        <p>Selected nodes: {this.state.selected.join(', ')}</p>
       </div>
     );
   }

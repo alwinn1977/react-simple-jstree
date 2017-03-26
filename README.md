@@ -26,7 +26,20 @@ And include in your project:
 import TreeView from 'react-simple-jstree';
 ```
 
-React.js (ES6) usage example:
+## Components's Props
+
+### treeData
+
+It is a required prop. It containes a JSON data for tree. See [jsTree](https://github.com/vakata/jstree) to get more information 
+about appropriate JSON data structure.
+
+### onChange
+
+It is an optional event handler for the changed event, which occurs when one or more nodes
+ have been selected. See example below for this prop's usage details.
+
+
+##React.js (ES6) usage example:
 
 ```javascript
 import React, {Component} from 'react';
@@ -48,7 +61,8 @@ export class Tree extends Component {
             }
           ]
         }
-      }
+      },
+      selected: [],
     };
   }
 
@@ -68,23 +82,29 @@ export class Tree extends Component {
     });
   }
 
+  handleChange(e, data) {
+    this.setState({
+      selected: data.selected,
+    })
+  }
+
   render() {
     const data = this.state.data;
 
     return (
       <div>
-        <button onClick={() => this.handleClick()}>Add node and Update</button>
+        <button onClick={() => this.handleClick()}>Add node</button>
         <br/><br/>
-        <TreeView treeData={data}/>
+        <TreeView treeData={data} onChange={(e, data) => this.handleChange(e, data)} />
+        <br />
+        <p>Selected nodes: {this.state.selected.join(', ')}</p>
       </div>
     );
   }
 }
-
-
 ```
 
-IMPORTANT! If you use webpack, you have to install and configure file-loader to load
+IMPORTANT! If you use webpack, you have to install and configure css loaders and file-loader to load
 *.gif and *.jpg files in webpack.conf.js, for example:
 
 ```
