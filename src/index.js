@@ -16,10 +16,7 @@ class TreeView extends Component {
   };
 
   shouldComponentUpdate(nextProps) {
-    if (nextProps.treeData === this.props.treeData) {
-      return false;
-    }
-    return true;
+    return nextProps.treeData !== this.props.treeData;
   }
 
   componentDidMount() {
@@ -43,7 +40,7 @@ class TreeView extends Component {
 
   render() {
     return (
-      <div ref={(div) => {this.treeContainer = div}} />
+      <div ref={div => this.treeContainer = div} />
     );
   }
 }

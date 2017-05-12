@@ -1,7 +1,7 @@
 {
   "name": "react-simple-jstree",
   "description": "The simple React.js wrapper for jstree",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "author": "alwinn1977",
   "repository": "alwinn1977/react-simple-jstree",
@@ -16,8 +16,8 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
-    "react": "^15.3.2",
-    "prop-types": "^15.5.8"
+    "react": "^15.5.4",
+    "prop-types": "^15.5.10"
   },
   "dependencies": {
     "jstree": "^3.3.3"
