@@ -9,6 +9,7 @@ class TreeView extends Component {
   static propTypes = {
     treeData: PropTypes.object.isRequired,
     onChange: PropTypes.func,
+    selectNode: PropTypes.array
   };
 
   static defaultProps = {
@@ -31,10 +32,12 @@ class TreeView extends Component {
 
   componentDidUpdate() {
     const { treeData } = this.props;
+    const selectNode = this.props.selectNode || [];
     if (treeData) {
       $(this.treeContainer).jstree(true).settings = treeData;
+      if (selectNode.length > 0) $(this.treeContainer).jstree(true).deselect_all();
       $(this.treeContainer).jstree(true).refresh();
-
+      if (selectNode.length > 0) $(this.treeContainer).jstree(true).select_node(selectNode);
     }
   }
 
